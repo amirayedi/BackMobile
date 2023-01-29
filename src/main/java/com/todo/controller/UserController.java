@@ -23,6 +23,7 @@ import com.todo.model.User;
 @RestController
 @RequestMapping("/user/")
 public class UserController {
+	
 	@Autowired
 	private UserRepository userRepository ;
 	
@@ -39,6 +40,16 @@ public class UserController {
 	public List<User> getAllUser(){
 		return userRepository.findAll();
 	}
+	
+	
+	@GetMapping("/getAllSecretaire")
+	public List<User> findUserByRole(){
+		String role = "s";
+		List<User> user = userRepository.findByRole(role);
+		return user;
+	}
+	
+	
 	
 	
 	@GetMapping("/find/{email}")
@@ -65,7 +76,8 @@ public class UserController {
 		user.setEmail(userInfo.getEmail());
 		user.setPassword(userInfo.getPassword());
 		user.setRole(userInfo.getRole());
-
+		user.setNom(userInfo.getNom());
+		user.setPrenom(userInfo.getPrenom());
 		
 		User userAjour = userRepository.save(user);
 		return ResponseEntity.ok(userAjour);

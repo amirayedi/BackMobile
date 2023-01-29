@@ -37,12 +37,12 @@ public class User {
 	@Column(name="role")
 	private String role;
 	
-	/*public long getId() {
+	public long getId() {
 		return id;
 	}
 	public void setId(long id) {
 		this.id = id;
-	}*/
+	}
 	public String getEmail() {
 		return email;
 	}

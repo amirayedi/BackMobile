@@ -1,5 +1,6 @@
 package com.todo.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,5 +16,7 @@ public interface UserRepository extends JpaRepository<User, Long>{
 	//public User findByEmail(String email);
 	public User getByEmailAndPassword(String email , String password);
 	public Optional<User> findByEmail(String email);
+	public List<User> findByRole(String role);
+	
 
 }
